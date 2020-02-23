@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="B" Collapsed="true">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAA=</HashCode>
+      <FileName>Example1.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="D1" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAIAQAAAAAAAAA=</HashCode>
+      <FileName>Example1.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="D2" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Example1.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="D3" Collapsed="true">
+    <Position X="6" Y="4" Width="1.5" />
+    <InheritanceLine Type="D2">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="-0.536" Y="0.05" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Example1.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="D4" Collapsed="true">
+    <Position X="6" Y="6" Width="1.5" />
+    <InheritanceLine Type="D2">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="-0.494" Y="0.081" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <InheritanceLine Type="D1" ManuallyRouted="true">
+      <Path>
+        <Point X="5.5" Y="3.191" />
+        <Point X="5.5" Y="5.625" />
+        <Point X="6.75" Y="5.625" />
+        <Point X="6.75" Y="6" />
+      </Path>
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="0.1" Y="0.091" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAEAAA=</HashCode>
+      <FileName>Example1.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
