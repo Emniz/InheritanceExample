@@ -1,0 +1,5 @@
+﻿  Example2.cpp
+c:\users\мв\desktop\учеба\ооп\лабораторные работы\inheritanceexample\example2\example2.cpp(115): warning C4250: eagle: наследуется "bird::bird::_print" через превосходство
+  c:\users\мв\desktop\учеба\ооп\лабораторные работы\inheritanceexample\example2\example2.cpp(88): note:  см. объявление "bird::_print"
+  Example2.vcxproj -> C:\Users\мв\Desktop\Учеба\ООП\Лабораторные работы\InheritanceExample\Debug\Example2.exe
+  Example2.vcxproj -> C:\Users\мв\Desktop\Учеба\ООП\Лабораторные работы\InheritanceExample\Debug\Example2.pdb (Full PDB)
