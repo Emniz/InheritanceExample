@@ -32,9 +32,9 @@ class B2 {
 	int d;
 public:
 	B2() { cout << "object of " << typeid(*this).name() << " was created\n"; }
-	B2(int x)
+	B2(int z)
 	{
-		d = x;
+		d = z;
 		cout << "object of " << typeid(*this).name() << " was created\n";
 	}
 	~B2() { cout << "object of " << typeid(*this).name() << " was destroyed" << endl; }
@@ -42,7 +42,7 @@ public:
 class D4 : public D1, public D2, public B2{
 	int e;
 public:
-	D4(int x, int y, int i, int j) :D1(x,y),D2(x,y),B2(x)
+	D4(int x, int y, int z, int i, int j, int k) :D1(y,z),D2(i,j),B2(k)
 	{
 		e = x;
 		cout << "object of " << typeid(*this).name() << " was created\n";
@@ -51,6 +51,6 @@ public:
 };
 int main()
 {
-	D4(3,5,7,9);
+	D4(2,3,5,6,7,9);
 }
 
