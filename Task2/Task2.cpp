@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -9,16 +10,22 @@ private:
 protected:
 	ComputerGameObject(const string& _name) :name(_name) {}
 	ComputerGameObject(const ComputerGameObject& obj) : name(obj.name) {}
-	virtual ~ComputerGameObject() { cout << "Computer game object deleted" << endl; }
-	virtual void  _print() const { cout << "name: " << name; }
+	virtual ~ComputerGameObject()
+	{
+		cout << "Computer game object deleted" << endl; 
+	}
+	virtual void  _print() const
+	{ 
+		cout << "\nName: " << name; 
+	}
 public:
-	virtual void draw() = 0;
 	void  print() const
 	{
-		cout << typeid(*this).name() << ": (";
+		cout << typeid(*this).name() << ": ";
 		_print();
-		cout << ")"<<endl;
+		cout <<endl;
 	}
+	virtual void position() = 0;
 };
 
 class Creature :public ComputerGameObject
@@ -30,15 +37,15 @@ private:
 	int moveX;
 	int moveY;
 public:
-	Creature(const string& _title, int _health,int _mana, int _endurance) :ComputerGameObject(_title), health(_health), mana(_mana), endurance(_endurance), moveX(0), moveY(0) {}
+	Creature(const string& _name, int _health,int _mana, int _endurance) :ComputerGameObject(_name), health(_health), mana(_mana), endurance(_endurance), moveX(0), moveY(0) {}
 	Creature(const Creature& obj) :
 		ComputerGameObject(obj), health(obj.health), mana(obj.mana), endurance(obj.endurance), moveX(obj.moveX), moveY(obj.moveY){}
-	Creature(const string& _title, int _health, int _mana, int _endurance, int _moveX, int _moveY) :
-		ComputerGameObject(_title), health(_health), mana(_mana), endurance(_endurance), moveX(_moveX), moveY(_moveY) {}
-	void _move(int X, int Y) 
+	Creature(const string& _name, int _health, int _mana, int _endurance, int _moveX, int _moveY) :
+		ComputerGameObject(_name), health(_health), mana(_mana), endurance(_endurance), moveX(_moveX), moveY(_moveY) {}
+	void _move(int x, int y) 
 	{
-		moveX = X;
-		moveY = Y;
+		moveX += x;
+		moveY += y;
 	}
 	int getX() 
 	{
@@ -57,13 +64,41 @@ protected:
 	void  _print() const override
 	{
 		ComputerGameObject::_print();
-		cout << ", health: " << health <<", mana: "<< mana << ", endurance: " << endurance <<", X: " << moveX << ", Y: " << moveY ;
+		cout << "\nHealth: " << health <<"\nMana: "<< mana << "\nEndurance: " << endurance <<"\nX: " << moveX << "\nY: " << moveY ;
 	}
 };
 
+class MythicalAnimal :public Creature
+{
+private:
+	string animal;
+public:
+	MythicalAnimal(const string& _name, int _mana, int _health, int _endurance, string _animal) :Creature(_name, _health, _mana, _endurance), animal(_animal){}
+	MythicalAnimal(const MythicalAnimal& obj) : Creature(obj), animal(obj.animal) {}
+	MythicalAnimal(const string& _name, int _health, int _mana, int _endurance,  string _animal, int _moveX, int _moveY) :
+		Creature(_name, _health, _mana, _endurance, _moveX, _moveY), animal(_animal) {}
+	~MythicalAnimal() {}
+	void move(int x, int y) override 
+	{
+		Creature::_move(x, y);
+		cout << "Mythical animal moves on: " << getX() << ";" << getY() << endl;
+	}
+	void position()
+	{
+		cout << "Position mythical animal: " << getX() << ";" << getY() <<endl;
+	}
+protected:
+	void _print()const override
+	{
+		Creature::_print();
+		cout << "\nMythical animal: " << animal;
+	}
+};
 
 int main()
 {
-
-	return 0;
+	MythicalAnimal dragon("Deathwing",100, 100, 200, "Dragon");
+	dragon.position();
+	dragon.move(20, 50);
+	dragon.print();
 }
