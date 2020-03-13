@@ -25,7 +25,7 @@ public:
 		_print();
 		cout <<endl;
 	}
-	virtual void position() = 0;
+	virtual void draw() = 0;
 };
 
 class Creature :public ComputerGameObject
@@ -84,7 +84,7 @@ public:
 		Creature::_move(x, y);
 		cout << "Mythical animal moves on: " << getX() << ";" << getY() << endl;
 	}
-	void position()
+	void draw()
 	{
 		cout << "Position mythical animal: " << getX() << ";" << getY() <<endl;
 	}
@@ -112,13 +112,13 @@ public:
 		Creature::_move(x, y);
 		cout << "Human character moves on: " << getX() << ";" << getY() << endl;
 	}
-	void position() override
+	void draw() override
 	{
 		cout << "Human position: " << getX() << ";" << getY() << endl;
 	}
 protected:
 
-	void _print()const override
+	void _print() const override
 	{
 		Creature::_print();
 		cout << "\nHuman weapon: " << weapone << "\nlevel: " << lvl;
@@ -140,7 +140,7 @@ public:
 		Creature::_move(x, y);
 		cout << "Magic character moves on: " << getX() << ";" << getY() << endl;
 	}
-	void position() override
+	void draw() override
 	{
 		cout << "Magic Character position: " << getX() << ";" << getY()<<endl;
 	}
@@ -166,7 +166,7 @@ public:
 		cout << "Magic item deleted\n";
 	}
 protected:
-	void position() override
+	void draw() override
 	{
 		cout << "Human has a magic item";
 	}
@@ -180,17 +180,17 @@ protected:
 int main()
 {
 	MythicalAnimal dragon("Deathwing",1300, 250, 400, "Dragon");
-	dragon.position();
+	dragon.draw();
 	dragon.move(20, 50);
 	dragon.print();
 	cout << endl;
 	Human Warrior("Dovakin", 100, 80, 150, "Glass sword", 11);
-	Warrior.position();
+	Warrior.draw();
 	Warrior.move(10, 35);
 	Warrior.print();
 	cout << endl;
 	MagicCharacter character("Ingrit", 100, 30, 300, "Ghost horse");
-	character.position();
+	character.draw();
 	character.move(10, 35);
 	character.print();
 	cout << endl;
